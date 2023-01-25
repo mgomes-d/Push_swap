@@ -6,7 +6,7 @@
 /*   By: mgomes-d <mgomes-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 15:13:53 by mgomes-d          #+#    #+#             */
-/*   Updated: 2023/01/25 08:48:27 by mgomes-d         ###   ########.fr       */
+/*   Updated: 2023/01/25 09:29:44 by mgomes-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	ft_atoi(const char *str, int *error)
 		if (cpt++ > 15 || nb < 0)
 			return (max_size(sign, &error));
 	}
-	if (!ft_error(nb, sign))
+	if (!ft_error(nb, sign) || str[i])
 		*error = 1;
 	return ((int)(nb * sign));
 }
