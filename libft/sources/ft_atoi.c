@@ -6,7 +6,7 @@
 /*   By: mgomes-d <mgomes-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 15:13:53 by mgomes-d          #+#    #+#             */
-/*   Updated: 2023/01/25 10:29:35 by mgomes-d         ###   ########.fr       */
+/*   Updated: 2023/01/25 11:47:42 by mgomes-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	ft_atoi(const char *str, int *error)
 	sign = 1;
 	i = 0;
 	*error = 0;
+	if (!str)
+		*error = 1;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 		i++;
 	sign = ft_sign(&str, &i);
