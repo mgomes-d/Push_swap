@@ -6,33 +6,16 @@
 /*   By: mgomes-d <mgomes-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 15:13:53 by mgomes-d          #+#    #+#             */
-/*   Updated: 2023/01/25 09:29:44 by mgomes-d         ###   ########.fr       */
+/*   Updated: 2023/01/25 10:29:35 by mgomes-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	max_size(int sign, int **error)
+static int	max_size(int **error)
 {
-	if (sign == 1)
-	{
-		**error = 1;
-		return (-1);
-	}
-	else
-	{
-		**error = 1;
-		return (0);
-	}
-}
-
-static int	ft_error(int nb, int sign)
-{
-	if (nb < 0 && sign > 0)
-		return (0);
-	if (nb < 0 && sign < 0)
-		return (0);
-	return (1);
+	**error = 1;
+	return (0);
 }
 
 static int	ft_sign(const char **str, int *i)
@@ -54,9 +37,7 @@ int	ft_atoi(const char *str, int *error)
 	long long	nb;
 	long		sign;
 	int			i;
-	int			cpt;
 
-	cpt = 1;
 	nb = 0;
 	sign = 1;
 	i = 0;
@@ -69,10 +50,10 @@ int	ft_atoi(const char *str, int *error)
 	while (ft_isdigit(str[i]))
 	{
 		nb = nb * 10 + str[i++] - '0';
-		if (cpt++ > 15 || nb < 0)
-			return (max_size(sign, &error));
+		if (nb * sign < INT_MIN || nb * sign > INT_MAX)
+			return (max_size(&error));
 	}
-	if (!ft_error(nb, sign) || str[i])
+	if (str[i])
 		*error = 1;
 	return ((int)(nb * sign));
 }

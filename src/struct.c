@@ -6,7 +6,7 @@
 /*   By: mgomes-d <mgomes-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:24:54 by mgomes-d          #+#    #+#             */
-/*   Updated: 2023/01/20 09:31:00 by mgomes-d         ###   ########.fr       */
+/*   Updated: 2023/01/25 10:13:33 by mgomes-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ static t_stack	*ft_put_in_struct_str(char **av)
 		if ((av[1][j] != ' ' && !ft_issymbolnumberstr(av[1]) && av[1][j]))
 			return (ft_error(listall));
 	}
+	if (!av[1][0])
+		return (ft_error(0));
 	return (listall);
 }
 
@@ -91,7 +93,7 @@ int	ft_start_data(int ac, char **av, t_data *data)
 	if (ac == 1)
 		return (0);
 	if (!av[1])
-		return (0);
+		return (write(1, "Error\n", 1));
 	else if (ac == 2)
 		data->stack_a = ft_put_in_struct_str(av);
 	else

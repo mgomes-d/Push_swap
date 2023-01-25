@@ -6,7 +6,7 @@
 /*   By: mgomes-d <mgomes-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 14:48:54 by mgomes-d          #+#    #+#             */
-/*   Updated: 2023/01/25 09:18:00 by mgomes-d         ###   ########.fr       */
+/*   Updated: 2023/01/25 10:19:26 by mgomes-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,9 +103,9 @@ void	ft_algo(t_data *data)
 	int	size;
 
 	size = ft_lstsizestack(data->stack_a);
-	if (ft_done(data))
-		return ;
 	if (size <= 1)
+		return ;
+	if (ft_done(data))
 		return ;
 	else if (size == 2)
 		ft_2numbers(data);

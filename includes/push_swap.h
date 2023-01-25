@@ -6,7 +6,7 @@
 /*   By: mgomes-d <mgomes-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 11:46:34 by mgomes-d          #+#    #+#             */
-/*   Updated: 2023/01/20 09:33:06 by mgomes-d         ###   ########.fr       */
+/*   Updated: 2023/01/25 10:02:03 by mgomes-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	ft_3numbers(t_data *data, t_stack *stack);
 
 int		ft_done(t_data *data);
 int		ft_put_int_str_utils(char *str, int j, t_stack **listall);
+void	ft_free_stack(t_data *data);
 
 // Raditz
 void	ft_raditz(t_data *data);
