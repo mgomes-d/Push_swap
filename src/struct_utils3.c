@@ -6,7 +6,7 @@
 /*   By: mgomes-d <mgomes-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 08:34:23 by mgomes-d          #+#    #+#             */
-/*   Updated: 2023/01/25 11:55:34 by mgomes-d         ###   ########.fr       */
+/*   Updated: 2023/01/26 09:15:08 by mgomes-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,18 @@ void	ft_free_stack(t_data *data)
 		data->stack_a = data->stack_a->next;
 		free(tmp);
 	}
+}
+
+int	ft_error_arg(char *av)
+{
+	int	i;
+
+	i = 0;
+	while (av[i])
+	{
+		if (av[i] != ' ')
+			return (0);
+		i++;
+	}
+	return (1);
 }

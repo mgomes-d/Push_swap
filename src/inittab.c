@@ -6,7 +6,7 @@
 /*   By: mgomes-d <mgomes-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 10:43:08 by mgomes-d          #+#    #+#             */
-/*   Updated: 2023/01/19 11:23:35 by mgomes-d         ###   ########.fr       */
+/*   Updated: 2023/01/26 10:58:02 by mgomes-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,25 +105,25 @@ void	ft_sort_struct(t_data *data)
 	int	*tab;
 	int	i;
 	int	j;
-	int	size;
 	int	*finaltab;
 
 	finaltab = ft_parsingtab(data);
 	tab = ft_parsing(data);
 	i = 0;
-	size = ft_lstsizestack(data->stack_a);
-	while (i < size)
+	while (i < ft_lstsizestack(data->stack_a))
 	{
 		j = 0;
-		while (j < size)
+		while (j < ft_lstsizestack(data->stack_a))
 		{
 			if (finaltab[i] == tab[j])
+			{
 				finaltab[i] = j;
+				break ;
+			}
 			j++;
 		}
 		i++;
 	}
-	i = 0;
 	free(tab);
 	ft_put_tabinstruct(finaltab, data->stack_a);
 }

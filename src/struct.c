@@ -6,7 +6,7 @@
 /*   By: mgomes-d <mgomes-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:24:54 by mgomes-d          #+#    #+#             */
-/*   Updated: 2023/01/25 11:54:04 by mgomes-d         ###   ########.fr       */
+/*   Updated: 2023/01/26 09:14:44 by mgomes-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int	ft_start_data(int ac, char **av, t_data *data)
 {
 	if (ac == 1)
 		return (0);
-	if (!*av[1])
+	if (!*av[1] || ft_error_arg(av[1]))
 	{
 		ft_free_stack(data);
 		return (write(2, "Error\n", 6));
